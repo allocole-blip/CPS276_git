@@ -6,8 +6,8 @@ function testName() {
 //making the directory 
 
         $dirExist= "diretories/$directoryName";
-       if (is_dir($dirExist)) {
-    return "A directory already exists with that name.";
+        if (is_dir($dirExist)) {
+            return "A directory already exists with that name.";
             }
        mkdir("diretories/$directoryName");
        chmod("diretories/$directoryName"
