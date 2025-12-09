@@ -24,8 +24,7 @@ custId int NULL,\
 PRIMARY KEY (Id)\
 ) ENGINE = InnoDB; \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 CREATE TABLE productGroup(\
+CREATE TABLE productGroup(\
  Id int NOT NULL AUTO_INCREMENT,\
 groupName char(50) NULL,\
 imageFolder varchar(50) NULL,\
@@ -40,10 +39,8 @@ description char(50) NULL,\
 image varchar(50) NULL,\
 PRIMARY KEY (Id)\
 ) ENGINE = InnoDB; \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 CREATE TABLE orderInfo(\
+\
+CREATE TABLE orderInfo(\
 Id int NOT NULL AUTO_INCREMENT,\
 orderId int NULL,\
 productId int NULL,\
@@ -70,5 +67,33 @@ email VARCHAR(100) ,\
 password VARCHAR(100),\
 PRIMARY KEY (Id)\
 ) ENGINE = InnoDB; \
+\
+CREATE TABLE admins (\
+    id INT AUTO_INCREMENT PRIMARY KEY,\
+    name VARCHAR(255) NOT NULL,\
+    email VARCHAR(255) NOT NULL UNIQUE,\
+    password VARCHAR(255) NOT NULL,\
+    status ENUM('admin', 'staff') NOT NULL\
+);\
+CREATE TABLE contacts (\
+    id INT AUTO_INCREMENT PRIMARY KEY,\
+    fname VARCHAR(100) NOT NULL,\
+    lname VARCHAR(100) NOT NULL,\
+    address VARCHAR(255) NOT NULL,\
+    city VARCHAR(100) NOT NULL,\
+    state VARCHAR(2) NOT NULL,\
+    phone VARCHAR(20) NOT NULL,\
+    email VARCHAR(255) NOT NULL,\
+    dob VARCHAR(10) NOT NULL,\
+    age VARCHAR(20) NOT NULL,             -- radio button selection\
+    contacts VARCHAR(255) NOT NULL,        -- checkbox group, stored as CSV\
+	zip_code VARCHAR(10) NOT NULL\
+); INSERT INTO admins (name, email, password, status)\
+VALUES (\
+    'Jane d',\
+    'test@gmail.com',\
+    '$2y$10$e0NRP0n2xE0OJzD9K7t8aO3oXzR1ix2o2UM2v1vT7rG9XeXm7RCCG',\
+    'admin'\
+);\
 \
 }
